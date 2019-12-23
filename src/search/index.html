@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 引入公共的meta标签 -->
+  ${ require('raw-loader!../../public/meta.html') }
+  <title>Document</title>
+  <!-- 引入lib-flexible库 动态计算不同设备下的rem相对于px的单位 -->
+  <script>
+    ${ require('raw-loader!babel-loader!../../node_modules/lib-flexible/flexible.js') }
+  </script>
+</head>
+<body>
+  <div id="root"><!-- html-placeholder --></div>
+  <script type="text/javascript" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js"></script>
+  <!-- mockData-placeholder -->
+</body>
+</html>
