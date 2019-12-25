@@ -118,7 +118,7 @@ module.exports = smp.wrap({
                             remPrecision: 8
                         }
                     },
-                    'less-loader',
+                    'less-loader'
                 ]
             },
             {
@@ -290,7 +290,9 @@ module.exports = smp.wrap({
  * 在css文件中添加/*no*\/可以不进行rem的转换
  * 3、使用purgecss-webpack-plugin擦除无用的css(要配合mini-css-extract-plugin使用)
  *
- * 静态资源内联
+ * 静态资源内联  https://github.com/cpselvis/blog/issues/5
+ * 意义：
+ * 工程维护、页面加载性能、页面加载体验
  * 代码层面：
  * 1、页面框架的初始化脚本
  * 2、可以避免页面闪动
@@ -298,7 +300,7 @@ module.exports = smp.wrap({
  * 1、减少http网络请求数，小图片或者字体内联(url-loader)
  * raw-loader@0.5.1
  * 作用：
- * 读取一个文件，将文件内容插入到指定位置
+ * 读取一个文件，将文件内容(将文件提取成一个string)插入到指定位置
  *
  * 页面公共资源提取 https://webpack.js.org/plugins/split-chunks-plugin/
  * split-chunks-plugin(webpack4内置)
@@ -396,4 +398,17 @@ module.exports = smp.wrap({
  * 推荐使用 SplitChunks 去提取页面间的公共 js 文件
  * 因为使用 SplitChunks 每次去提取基础包还是需要耗费构建时间的，
  * DllPlugin 只需要预编译一次，后面的基础包时间都可以省略掉。
+ */
+
+
+/**
+ * loader
+ * 只是一个导出为函数的js模块
+ * 多个loader串行执行，顺序从后往前。
+ * 可以使用loader-runner允许在不安装webpack的情况下运行loaders
+ * 
+ * plugin
+ * 通过module.exports导出一个类
+ * loader不能做的事情，插件都能做。
+ * 没有独立运行环境，只能在webpack里面运行
  */
